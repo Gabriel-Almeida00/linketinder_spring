@@ -2,6 +2,7 @@ package com.ms_competencias.service
 
 import com.ms_competencias.domain.entity.VagaCompetencia
 import com.ms_competencias.domain.repository.VagaCompetenciaRepository
+import com.ms_competencias.rest.dto.CompetenciaDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -55,7 +56,7 @@ class VagaCompetenciaService implements IVagaCompetencia{
     }
 
     @Override
-    List<VagaCompetencia> finAll(Integer id) {
+    List<CompetenciaDTO> finAll(Integer id) {
         return this.vagaCompetenciaRepository.findByIdVaga(id)
     }
 }

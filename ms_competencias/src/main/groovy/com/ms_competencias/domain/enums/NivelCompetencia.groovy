@@ -1,7 +1,7 @@
 package com.ms_competencias.domain.enums
 
 enum NivelCompetencia {
-    BASICO,
+    BASICO ,
     MEDIO,
     AVANCADO
 }

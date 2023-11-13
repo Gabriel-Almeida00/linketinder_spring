@@ -2,6 +2,7 @@ package com.ms_competencias.rest.controller
 
 import com.ms_competencias.domain.entity.CandidatoCompetencia
 import com.ms_competencias.domain.entity.VagaCompetencia
+import com.ms_competencias.rest.dto.CompetenciaDTO
 import com.ms_competencias.service.CandidatoCompetenciaService
 import com.ms_competencias.service.VagaCompetenciaService
 import org.springframework.beans.factory.annotation.Autowired
@@ -47,7 +48,7 @@ class VagaCompetenciaController {
     }
 
     @GetMapping("{id}/all")
-    List<VagaCompetencia> findAll(@PathVariable Integer id) {
+    List<CompetenciaDTO> findAll(@PathVariable Integer id) {
         return this.service.finAll(id)
     }
 }

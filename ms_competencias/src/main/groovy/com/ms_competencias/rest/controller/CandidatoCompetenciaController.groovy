@@ -1,6 +1,7 @@
 package com.ms_competencias.rest.controller
 
 import com.ms_competencias.domain.entity.CandidatoCompetencia
+import com.ms_competencias.rest.dto.CompetenciaDTO
 import com.ms_competencias.service.CandidatoCompetenciaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -37,7 +38,7 @@ class CandidatoCompetenciaController {
     }
 
     @GetMapping("{id}/all")
-    List<CandidatoCompetencia> findAll(@PathVariable Integer id) {
+    List<CompetenciaDTO> findAll(@PathVariable Integer id) {
         return this.service.finAll(id)
     }
 }
