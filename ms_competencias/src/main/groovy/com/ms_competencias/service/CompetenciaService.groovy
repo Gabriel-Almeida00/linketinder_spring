@@ -41,7 +41,7 @@ class CompetenciaService implements ICompetenciaService{
         })
         .orElseThrow( () ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Competencia não encontrado."));
+                        "Competencia não encontrado."))
     }
 
     @Override
