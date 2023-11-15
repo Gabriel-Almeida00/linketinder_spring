@@ -1,36 +1,36 @@
 package com.ms_nucleo.service
 
-import com.ms_nucleo.domain.entity.Experiencia
-import com.ms_nucleo.domain.repository.ExperienciaRepository
-import com.ms_nucleo.rest.dto.ExperienciaDTO
+import com.ms_nucleo.domain.entity.Formacao
+import com.ms_nucleo.domain.repository.FormacaoRepository
+import com.ms_nucleo.rest.dto.FormacaoDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 
 @Service
-class ExperienciaService implements IExperienciaService {
+class FormacaoService implements IFormacaoService {
 
     @Autowired
-    private ExperienciaRepository repository
+    private FormacaoRepository repository
 
     @Override
-    Experiencia save(Experiencia experiencia) {
-        this.repository.save(experiencia)
-        return experiencia
+    Formacao save(Formacao formacao) {
+        this.repository.save(formacao)
+        return formacao
     }
 
     @Override
-    void update(Integer id, Experiencia experiencia) {
+    void update(Integer id, Formacao formacao) {
         this.repository.findById(id)
                 .map(p -> {
-                    experiencia.setId(p.getId())
-                    this.repository.save(experiencia)
-                    return experiencia
+                    formacao.setId(p.getId())
+                    this.repository.save(formacao)
+                    return formacao
                 })
                 .orElseThrow(() ->
                         new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                "Experiencia não encontrado."))
+                                "formacao não encontrado."))
     }
 
     @Override
@@ -42,28 +42,30 @@ class ExperienciaService implements IExperienciaService {
                 })
                 .orElseThrow(() ->
                         new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                "Experiencia não encontrada."))
+                                "formacao não encontrada."))
     }
 
     @Override
-    ExperienciaDTO getById(Integer id) {
+    FormacaoDTO getById(Integer id) {
         this.repository.findById(id)
                 .map(p -> {
-                    ExperienciaDTO experienciaDTO = new ExperienciaDTO(
+                    FormacaoDTO formacaoDTO = new FormacaoDTO(
                             p.getId(),
-                            p.getCargo(),
-                            p.getEmpresa(),
-                            p.getNivel()
+                            p.getInstituicao(),
+                            p.getCurso(),
+                            p.getNivel(),
+                            p.getAnoConclusao()
                     )
-                    return experienciaDTO
+
+                    return formacaoDTO
                 })
                 .orElseThrow(() ->
                         new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                "Experiencia não encontrada."))
+                                "formacao não encontrada."))
     }
 
     @Override
-    List<ExperienciaDTO> findByIdCandidato(Integer idcandidato) {
+    List<FormacaoDTO> findByIdCandidato(Integer idcandidato) {
         return this.repository.findByCandidato_id(idcandidato)
     }
 }

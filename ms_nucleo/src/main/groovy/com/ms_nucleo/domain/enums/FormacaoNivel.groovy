@@ -3,7 +3,7 @@ package com.ms_nucleo.domain.enums
 enum FormacaoNivel {
     Medio,
     Tecnico,
-    Graduao,
+    Graduacao,
     Pos_Graduacao,
     Mestrado,
     Doutorado

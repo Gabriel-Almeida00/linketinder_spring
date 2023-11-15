@@ -15,9 +15,6 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table
 class Formacao {
@@ -42,4 +39,64 @@ class Formacao {
 
     @Column
     private Date anoConclusao
+
+    Formacao(Integer id, Candidato candidato, String instituicao, String curso, FormacaoNivel nivel, Date anoConclusao) {
+        this.id = id
+        this.candidato = candidato
+        this.instituicao = instituicao
+        this.curso = curso
+        this.nivel = nivel
+        this.anoConclusao = anoConclusao
+    }
+
+    Formacao() {
+    }
+
+    Integer getId() {
+        return id
+    }
+
+    void setId(Integer id) {
+        this.id = id
+    }
+
+    Candidato getCandidato() {
+        return candidato
+    }
+
+    void setCandidato(Candidato candidato) {
+        this.candidato = candidato
+    }
+
+    String getInstituicao() {
+        return instituicao
+    }
+
+    void setInstituicao(String instituicao) {
+        this.instituicao = instituicao
+    }
+
+    String getCurso() {
+        return curso
+    }
+
+    void setCurso(String curso) {
+        this.curso = curso
+    }
+
+    FormacaoNivel getNivel() {
+        return nivel
+    }
+
+    void setNivel(FormacaoNivel nivel) {
+        this.nivel = nivel
+    }
+
+    Date getAnoConclusao() {
+        return anoConclusao
+    }
+
+    void setAnoConclusao(Date anoConclusao) {
+        this.anoConclusao = anoConclusao
+    }
 }
