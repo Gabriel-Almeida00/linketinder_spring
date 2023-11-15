@@ -15,9 +15,7 @@ import javax.persistence.OneToMany
 import javax.persistence.Table
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table
 class Empresa {
@@ -51,4 +49,90 @@ class Empresa {
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("empresa")
     private List<Vaga> vagas
+
+    Empresa(Integer id, String nome, String email, String pais, String cep, String cnpj, String descricao, String senha) {
+        this.id = id
+        this.nome = nome
+        this.email = email
+        this.pais = pais
+        this.cep = cep
+        this.cnpj = cnpj
+        this.descricao = descricao
+        this.senha = senha
+    }
+
+    Empresa() {
+    }
+
+    Integer getId() {
+        return id
+    }
+
+    void setId(Integer id) {
+        this.id = id
+    }
+
+    String getNome() {
+        return nome
+    }
+
+    void setNome(String nome) {
+        this.nome = nome
+    }
+
+    String getEmail() {
+        return email
+    }
+
+    void setEmail(String email) {
+        this.email = email
+    }
+
+    String getPais() {
+        return pais
+    }
+
+    void setPais(String pais) {
+        this.pais = pais
+    }
+
+    String getCep() {
+        return cep
+    }
+
+    void setCep(String cep) {
+        this.cep = cep
+    }
+
+    String getCnpj() {
+        return cnpj
+    }
+
+    void setCnpj(String cnpj) {
+        this.cnpj = cnpj
+    }
+
+    String getDescricao() {
+        return descricao
+    }
+
+    void setDescricao(String descricao) {
+        this.descricao = descricao
+    }
+
+    String getSenha() {
+        return senha
+    }
+
+    void setSenha(String senha) {
+        this.senha = senha
+    }
+
+    List<Vaga> getVagas() {
+        return vagas
+    }
+
+    void setVagas(List<Vaga> vagas) {
+        this.vagas = vagas
+    }
 }
