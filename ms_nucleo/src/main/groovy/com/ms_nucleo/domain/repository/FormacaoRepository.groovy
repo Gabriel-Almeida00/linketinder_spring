@@ -1,7 +1,6 @@
 package com.ms_nucleo.domain.repository
 
 import com.ms_nucleo.domain.entity.Formacao
-import com.ms_nucleo.rest.dto.ExperienciaDTO
 import com.ms_nucleo.rest.dto.FormacaoDTO
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
